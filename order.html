@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Stars | Official School Store</title>
+    <link rel="stylesheet" href="asset/order.css" />
+    <link rel="shortcut icon" href="media/store media/TechStars_Logo.png" type="image/x-icon">
+    <script
+      src="https://kit.fontawesome.com/de94c8c05c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="store-header">
+      <div class="container nav-wrapper">
+        <div class="logo">
+          <img src="media/store media/TechStars_Logo.png" style="width: 60px; height: 60px" alt="Logo" />
+          Store
+        </div>
+        <div class="navs">
+          <a href="#">Catalog</a>
+          <a href="#" style="margin-left: 10px">Build a Kit</a>
+          <a href="#" style="padding-left: 10px">How it works</a>
+        </div>
+        <button class="cart-trigger" id="cartToggle" onclick="toggleCart()">
+          🛒 My Kit
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HERO CAROUSEL -->
+      <section class="hero-carousel">
+        <div class="carousel-slides" id="carouselSlides">
+          <div class="slide">
+            <span class="slide-badge">Bootcamp Launch Special</span>
+            <h1>Gear Up for Tech Stars</h1>
+            <p>
+              Get official learning materials, hardware starter kits, and Tech
+              Stars gear delivered right to your doorstep.
+            </p>
+            <br />
+            <button id="browses">Browse the Catalogue</button>
+          </div>
+          <div class="slide alt-bg">
+            <span class="slide-badge">Save Up To 15%</span>
+            <h1>Web Dev Track Bundles</h1>
+            <p>
+              Order your track workbook, laptop stickers, and hardware together
+              to get an instant student discount!
+            </p>
+            <br />
+            <button id="browse">Browse the Catalogue</button>
+          </div>
+        </div>
+        <div class="carousel-nav" id="carouselNav">
+          <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+          <div class="carousel-dot" onclick="goToSlide(1)"></div>
+        </div>
+      </section>
+
+      <!-- SEARCH & TRACK FILTER BAR -->
+      <section class="filter-section">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search for microcontrollers, tablets, hoodies, guides..."
+            oninput="filterProducts()"
+          />
+        </div>
+        <div class="track-tabs">
+          <button class="tab-btn active" onclick="filterTrack('all', this)">
+            All Items
+          </button>
+          <button class="tab-btn" onclick="filterTrack('explorer', this)">
+            Ages 6-9: Explorer
+          </button>
+          <button class="tab-btn" onclick="filterTrack('creator', this)">
+            Ages 10-14: Creator
+          </button>
+          <button class="tab-btn" onclick="filterTrack('innovator', this)">
+            Ages 15-18: Innovator
+          </button>
+          <button class="tab-btn" onclick="filterTrack('merch', this)">
+            Tech Stars Gear
+          </button>
+        </div>
+      </section>
+
+      <!-- BUNDLE INTERACTIVE SECTION -->
+      <section class="bundle-builder">
+        <div class="bundle-header">
+          <div>
+            <h2>⚡ Build Your Bootcamp Starter Pack 😉</h2>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 12px;
+                margin-left: 38px;
+              "
+            >
+              Select items below to calculate your bundle savings.
+            </p>
+          </div>
+          <span
+            style="
+              background: rgba(34, 197, 94, 0.1);
+              color: var(--success);
+              padding: 6px 12px;
+              border-radius: 20px;
+              font-weight: 700;
+              font-size: 0.85rem;
+            "
+          >
+            Bundle Discount Active
+          </span>
+        </div>
+        <div class="bundle-options">
+          <label class="bundle-option selected" onclick="toggleBundleItem(this)">
+            <input type="checkbox" checked hidden />
+            <div>
+              <input type="radio" name="bundle_opt_1" />
+              <strong>Required Track Workbook</strong>
+              <div class="checkbox-circle"></div>
+              <div class="price-val" style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 20px;">
+                ₦ 30,000
+              </div>
+            </div>
+          </label>
+          <label class="bundle-option selected" onclick="toggleBundleItem(this)">
+            <input type="checkbox" checked hidden />
+            <div>
+              <input type="radio" name="bundle_opt_2" />
+              <strong>Hardware Starter Module</strong>
+              <div class="price-val" style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 20px;">
+                ₦ 40,000
+              </div>
+            </div>
+          </label>
+          <label class="bundle-option" onclick="toggleBundleItem(this)">
+            <input type="checkbox" hidden />
+            <div>
+              <input type="radio" name="bundle_opt_3" />
+              <strong>Tech Stars Swag Pack</strong>
+              <div class="price-val" style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 20px;">
+                ₦ 25,000
+              </div>
+            </div>
+          </label>
+        </div>
+        <div class="bundle-footer">
+          <div>
+            <span>Total Bundle Price: </span>
+            <strong
+              id="bundlePrice"
+              style="font-size: 1.3rem; color: var(--primary)"
+            >
+              ₦ 70,000
+            </strong>
+          </div>
+          <button class="btn-secondary" onclick="addBundleToCart()">
+            Add Starter Pack to Cart
+          </button>
+        </div>
+      </section>
+
+      <!-- PRODUCT GRID LAYOUT -->
+      <section>
+        <h2 class="section-title">Course Materials & Gear</h2>
+        <span style="color: var(--text-secondary); font-size: 12px">
+          <p>Everything you need for your Tech Star Bootcamp Journey</p>
+        </span>
+        <br />
+        <div class="lic">
+          <button id="hello" style="margin-top: 20px">
+            <h5>Required for Robotics</h5>
+          </button>
+          <img
+            src="media/store media/product-arduino_cfeb9f5d.webp"
+            style="height: 250px; border-radius: 10px"
+            class="hi"
+            alt="Arduino Kit"
+          />
+          <div class="letters">
+            <br /><br />
+            <h6 style="color: var(--text-secondary)">AGES 10-14. CREATOR</h6>
+            <h4 style="font-weight: bolder; font-size: 25px">
+              Arduino Robotics Starter Kit
+            </h4>
+            <p style="color: var(--text-secondary)">
+              Includes board, breadboard, sensors, and motor controls for
+              hands-on experimentation.
+            </p>
+            <br />
+            <strong style="color: var(--primary); font-size: 30px">₦ 40,000</strong>
+          </div>
+        </div>
+        <br /><br /><br />
+
+        <div class="product-grid" id="productGrid">
+          <!-- Products populated via JS -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- OVERLAY & CART DRAWER -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Your Learning Gear</h3>
+        <button class="close-cart" onclick="toggleCart()">&times;</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p style="color: var(--text-secondary); text-align: center; margin-top: 40px;">
+          Your cart is empty.
+        </p>
+      </div>
+      <div class="cart-footer">
+        <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem;">
+          <span>Total:</span>
+          <span id="cartTotal">₦ 0.00</span>
+        </div>
+        <button
+          class="checkout-btn"
+          onclick="alert('Proceeding to Student Details & Checkout!')"
+        >
+          Checkout Order
+        </button>
+      </div>
+    </aside>
+    
+    <section class="ordering-stepper container">
+      <div class="slide-down-trigger">
+        <h2 class="section-title text-center" style="margin-bottom: 32px">
+          How Ordering Works
+        </h2>
+      </div>
+
+      <div class="stepper-grid-slide-up">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Select Your Track Kit</h3>
+            <p>Pick items aligned with your enrolled bootcamp age group.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Add Student Details</h3>
+            <p>Enter student name & course track at checkout.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Campus Pickup or Direct Delivery</h3>
+            <p>Collect at your local Tech Stars Centre or get home delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="asset/order.js"></script>
+  </body>
+</html>

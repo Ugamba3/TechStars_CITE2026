@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechStars — Student Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="media/images/TechStars-icon.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="asset/style.css">
+</head>
+<body>
+
+<section class="app">
+
+  <!--  SIDEBAR  -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><img src="media/images/TechStars_Logo.png" alt=""></div>
+      <span class="brand-name">Center For Information and Telecommunication Engineering</span>
+    </div>
+
+    <nav class="nav">
+      <span class="nav-label">Main</span>
+      <button class="nav-item active" data-page="dashboard">
+        <i class="fa-solid fa-house"></i><span>Dashboard</span>
+      </button>
+
+      <button class="nav-item" data-page="profile">
+        <i class="fa-solid fa-user"></i><span>Student Profile</span>
+      </button>
+      <button class="nav-item" data-page="courses">
+        <i class="fa-solid fa-book-open"></i><span>Courses Offered</span>
+      </button>
+      <button class="nav-item" data-page="attendance">
+        <i class="fa-solid fa-calendar-check"></i><span>Attendance</span>
+      </button>
+      <button class="nav-item" data-page="grades">
+        <i class="fa-solid fa-chart-line"></i><span>Grades / GPA</span>
+      </button>
+      <button class="nav-item" data-page="assignments">
+        <i class="fa-solid fa-clipboard-list"></i><span>Assignments</span>
+      </button>
+      <button class="nav-item" data-page="timetable">
+        <i class="fa-solid fa-table-cells-large"></i><span>Timetable</span>
+      </button>
+      <button class="nav-item" data-page="announcements">
+        <i class="fa-solid fa-bullhorn"></i><span>Announcements</span>
+      </button>
+
+      <span class="nav-label">Account</span>
+      <button class="nav-item" data-page="settings">
+        <i class="fa-solid fa-gear"></i><span>Settings</span>
+      </button>
+      <button class="nav-item nav-logout" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="storage-card">
+        <i class="fa-solid fa-fire"></i>
+        <div>
+          <p class="storage-title">12-day streak</p>
+          <p class="storage-sub">Keep it going!</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!--  MAIN  -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+
+      <!-- SEARCH BAR -->
+      <div class="search-bar" id="searchBar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search courses, assignments, people…" autocomplete="off">
+
+        <!-- Results of search-->
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div class="topbar-actions">
+
+        <!-- NOTIFICATION BUTTON -->
+        <div class="popover-wrap">
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i><span class="dot"></span>
+          </button>
+
+          <div class="popover" id="notifPopover">
+            <div class="popover-head">
+              <h4>Notifications</h4>
+              <span class="popover-count">3 new</span>
+            </div>
+            <div class="popover-list">
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-clipboard-check"></i></div>
+                <div>
+                  <p class="popover-title">Chemistry lab report due Thursday</p>
+                  <p class="popover-sub">2 hours ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#fef9c3;color:#a16207"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <p class="popover-title">You were marked late on Jul 30</p>
+                  <p class="popover-sub">1 day ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-chart-line"></i></div>
+                <div>
+                  <p class="popover-title">New grade posted for Computer Networking</p>
+                  <p class="popover-sub">2 days ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MESSAGES BUTTON -->
+        <div class="popover-wrap">
+          <button class="icon-btn" id="msgBtn" aria-label="Messages">
+            <i class="fa-regular fa-envelope"></i>
+          </button>
+
+          <div class="popover" id="msgPopover">
+            <div class="popover-head">
+              <h4>Messages</h4>
+              <span class="popover-count">2 new</span>
+            </div>
+            <div class="popover-list">
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-user"></i></div>
+                <div>
+                  <p class="popover-title">Instructor Precious: "Please resubmit part 2"</p>
+                  <p class="popover-sub">Web Development · 30 mins ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#f3e8ff;color:#a855f7"><i class="fa-solid fa-people-group"></i></div>
+                <div>
+                  <p class="popover-title">Data Science Study Group: "Meeting moved to 5pm"</p>
+                  <p class="popover-sub">Study group · 3 hours ago</p>
+                </div>
+              </div>
+              <div class="popover-item">
+                <div class="popover-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-building-columns"></i></div>
+                <div>
+                  <p class="popover-title">School Portal: "Fees receipt available"</p>
+                  <p class="popover-sub">Yesterday</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-v"></div>
+
+        <!-- PROFILE CHIP -->
+        <div class="profile-chip" id="profileChip" data-page="profile">
+          <img src="https://i.pravatar.cc/80?img=47" alt="Amara Nwosu">
+          <div>
+            <p class="profile-name" id="topbarProfileName">Amara Nwosu</p>
+            <p class="profile-role">Computer Science</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section class="page active" id="page-dashboard">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Welcome back, Amara <i class="fa-solid fa-hands"></i></p>
+          <h1>Dashboard</h1>
+        </div>
+        <button class="close-btn" id="openCalendar">
+          <i class="fa-regular fa-calendar"></i> View calendar</button>
+      </div>
+
+      <div class="grid-2">
+        <!-- Next class card -->
+        <div class="card">
+          <div class="card-head">
+            <h3>Next Class</h3>
+            <a href="#" class="link" data-page="timetable">View timetable</a>
+          </div>
+          <div class="next-class">
+            <div class="nc-time"><i class="fa-regular fa-clock"></i> 09:40 AM · MSC Class</div>
+            <div class="nc-row">
+              <div class="nc-subject">
+                <div class="subject-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa fa-terminal"></i></div>
+                <div>
+                  <p class="nc-title">Python</p>
+                  <p class="nc-sub">Instructor Jonathan</p>
+                </div>
+              </div>
+              <span class="vs">then</span>
+              <div class="nc-subject">
+                <div class="subject-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-code"></i></div>
+                <div>
+                  <p class="nc-title">Web Development</p>
+                  <p class="nc-sub">Instructor Precious</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Term performance -->
+        <div class="card">
+          <div class="card-head">
+            <h3>Term Performance</h3>
+            <a href="#" class="link" data-page="grades">View all grades</a>
+          </div>
+          <div class="perf-bar">
+            <span class="seg seg-a" style="width:55%">A</span>
+            <span class="seg seg-b" style="width:30%">B</span>
+            <span class="seg seg-c" style="width:15%">C</span>
+          </div>
+          <div class="perf-stats">
+            <div><p class="ps-num">9</p><p class="ps-label">Subjects</p></div>
+            <div><p class="ps-num">5</p><p class="ps-label">Grade A</p></div>
+            <div><p class="ps-num">3</p><p class="ps-label">Grade B</p></div>
+            <div><p class="ps-num">1</p><p class="ps-label">Grade C</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-mixed">
+        <!-- Assignments due -->
+        <div class="card span-2">
+          <div class="card-head">
+            <h3>Assignments Due</h3>
+            <a href="#" class="link" data-page="assignments">View all</a>
+          </div>
+          <table class="table">
+            <thead>
+              <tr><th>#</th><th>Course</th><th>Task</th><th>Due</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><span class="dot-tag" style="background:var(--primary)"></span>Robotics</td>
+                <td>Artificial intelligence integration</td>
+                <td>Aug 6</td>
+                <td><span class="badge badge-warning">Pending</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span class="dot-tag" style="background:var(--secondary)"></span>Web Development</td>
+                <td>Responsive Design </td>
+                <td>Aug 7</td>
+                <td><span class="badge badge-warning">Pending</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><span class="dot-tag" style="background:#22c55e"></span>Data Science</td>
+                <td>Predictive Modeling</td>
+                <td>Aug 9</td>
+                <td><span class="badge badge-success">Submitted</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><span class="dot-tag" style="background:#a855f7"></span>UI/UX</td>
+                <td>Building UI Interfaces</td>
+                <td>Aug 11</td>
+                <td><span class="badge badge-neutral">Not started</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="stack">
+          <div class="card stat-card">
+            <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <p class="stat-label">Attendance</p>
+              <p class="stat-value">94%</p>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <p class="stat-label">Current GPA</p>
+              <p class="stat-value">3.8</p>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-book-open"></i></div>
+            <div>
+              <p class="stat-label">Courses</p>
+              <p class="stat-value">9</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promo banner -->
+      <div class="promo-banner">
+        <div>
+          <p class="promo-tag">Don't forget</p>
+          <h2>Submit your Chemistry lab report<br>before Thursday</h2>
+          <button class="btn-light" id="promoAssignmentsBtn" data-page="assignments">Go to assignments</button>
+        </div>
+        <div class="promo-art" aria-hidden="true">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+          <i class="fa-solid fa-flask promo-icon"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT PROFILE -->
+    <section class="page" id="page-profile">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Your details</p>
+          <h1>Student Profile</h1>
+        </div>
+        <button class="btn-primary" id="editProfileBtn"><i class="fa-solid fa-pen"></i> Edit profile</button>
+      </div>
+
+      <div class="grid-2">
+        <div class="card profile-card">
+          <img src="https://i.pravatar.cc/160?img=47" alt="Amara Nwosu" class="profile-avatar">
+          <h3 id="profileCardName">Amara Nwosu</h3>
+          <p class="muted">Computer Science</p>
+          <div class="profile-tags">
+            <span class="badge badge-neutral">ID: STU-20481</span>
+            <span class="badge badge-success">Active</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Personal Information</h3></div>
+          <div class="info-grid">
+            <div><p class="info-label">Full name</p><p class="info-value" id="profileFullName">Amara Chidinma Nwosu</p></div>
+            <div><p class="info-label">Date of birth</p><p class="info-value">14 March 2001</p></div>
+            <div><p class="info-label">Gender</p><p class="info-value">Female</p></div>
+            <div><p class="info-label">Email</p><p class="info-value">amara.nwosu@school.edu</p></div>
+            <div><p class="info-label">Phone</p><p class="info-value">+234 802 555 0148</p></div>
+            <div><p class="info-label">Guardian</p><p class="info-value">Mrs. Ifeoma Nwosu</p></div>
+            <div><p class="info-label">Course</p><p class="info-value">Computer Science </p></div>
+            <div><p class="info-label">Instructor</p><p class="info-value">Instructor. Precious</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Academic Summary</h3></div>
+        <div class="perf-stats">
+          <div><p class="ps-num">3.8</p><p class="ps-label">GPA</p></div>
+          <div><p class="ps-num">94%</p><p class="ps-label">Attendance</p></div>
+          <div><p class="ps-num">9</p><p class="ps-label">Courses</p></div>
+          <div><p class="ps-num">2nd</p><p class="ps-label">Class Rank</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES OFFERED  -->
+     <section class="page" id="page-courses">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Academic year 2025/2026</p>
+          <h1>Courses Offered</h1>
+        </div>
+
+        <!-- FILTER BUTTON -->
+        <div class="popover-wrap">
+          <button class="btn-outline" id="filterBtn"><i class="fa-solid fa-filter"></i> Filter</button>
+          <div class="popover popover-menu" id="filterPopover">
+            <button class="popover-menu-item" data-sort="az"><i class="fa-solid fa-arrow-down-a-z"></i> Name (A - Z)</button>
+            <button class="popover-menu-item" data-sort="za"><i class="fa-solid fa-arrow-down-z-a"></i> Name (Z - A)</button>
+            <button class="popover-menu-item" data-sort="progress-high"><i class="fa-solid fa-arrow-down-wide-short"></i> Progress (high - low)</button>
+            <button class="popover-menu-item" data-sort="progress-low"><i class="fa-solid fa-arrow-up-wide-short"></i> Progress (low - high)</button>
+            <button class="popover-menu-item" data-sort="default"><i class="fa-solid fa-rotate-left"></i> Default order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-grid" id="courseGrid">
+        <div class="card course-card" data-name="Web Development" data-progress="78">
+          <div class="subject-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-code"></i></div>
+          <h3>Web Development</h3>
+          <p class="muted">Instructor Precious · 5 credits</p>
+          <div class="progress-track"><div class="progress-fill" style="width:78%;background:var(--primary)"></div></div>
+          <p class="progress-label">78% complete</p>
+        </div>
+        <div class="card course-card" data-name="UI/UX Design" data-progress="65">
+          <div class="subject-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-palette"></i></div>
+          <h3>UI/UX Design</h3>
+          <p class="muted">Instructor Excel · 5 credits</p>
+          <div class="progress-track"><div class="progress-fill" style="width:65%;background:var(--secondary)"></div></div>
+          <p class="progress-label">65% complete</p>
+        </div>
+        <div class="card course-card" data-name="Ph.D. in Communication Engineering" data-progress="88">
+          <div class="subject-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-tower-broadcast"></i></div>
+          <h3>Ph.D. in Communication Engineering</h3>
+          <p class="muted">Sir. Jonathan · 4 credits</p>
+          <div class="progress-track"><div class="progress-fill" style="width:88%;background:var(--success)"></div></div>
+          <p class="progress-label">88% complete</p>
+        </div>
+        <div class="card course-card" data-name="Robotics" data-progress="52">
+          <div class="subject-icon" style="background:#f3e8ff;color:#a855f7"><i class="fa-solid fa-robot"></i></div>
+          <h3>Robotics</h3>
+          <p class="muted">Mr. Gameliel · 3 credits</p>
+          <div class="progress-track"><div class="progress-fill" style="width:52%;background:#a855f7"></div></div>
+          <p class="progress-label">52% complete</p>
+        </div>
+        <div class="card course-card" data-name="Master's in Embedded Artificial Intelligence" data-progress="70">
+          <div class="subject-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-brain"></i></div>
+          <h3>Master's in Embedded Artificial Intelligence</h3>
+          <p class="muted">Mr. Yusuf · 3 credits</p>
+          <div class="progress-track"><div class="progress-fill" style="width:70%;background:var(--danger)"></div></div>
+          <p class="progress-label">70% complete</p>
+        </div>
+        <div class="card course-card" data-name="Data Analytics" data-progress="95">
+          <div class="subject-icon" style="background:#fef9c3;color:#ca8a04"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Data Analytics</h3>
+          <p class="muted">Sir. Jonathan · 4 credits</p>
+          <div class="progress-track"><div class="progress-fill" style="width:95%;background:#ca8a04"></div></div>
+          <p class="progress-label">95% complete</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATTENDANCE -->
+    <section class="page" id="page-attendance">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow" id="attendanceEyebrow">Term 2 · 2025/2026</p>
+          <h1>Attendance</h1>
+        </div>
+
+        <!-- THIS TERM BUTTON -->
+        <div class="popover-wrap">
+          <button class="btn-outline" id="termBtn"><i class="fa-regular fa-calendar"></i> <span id="termBtnLabel">This term</span></button>
+          <div class="popover popover-menu" id="termPopover">
+            <button class="popover-menu-item" data-term="Term 1">Term 1 · 2025/2026</button>
+            <button class="popover-menu-item" data-term="Term 2">Term 2 · 2025/2026</button>
+            <button class="popover-menu-item" data-term="Term 3">Term 3 · 2025/2026</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-check"></i></div>
+          <div><p class="stat-label">Present</p><p class="stat-value">112</p></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-xmark"></i></div>
+          <div><p class="stat-label">Absent</p><p class="stat-value">4</p></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#fef9c3;color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+          <div><p class="stat-label">Late</p><p class="stat-value">3</p></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-percent"></i></div>
+          <div><p class="stat-label">Attendance rate</p><p class="stat-value">94%</p></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Recent Attendance</h3></div>
+        <table class="table">
+          <thead><tr><th>Date</th><th>Day</th><th>Status</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Aug 1, 2026</td><td>Saturday</td><td><span class="badge badge-success">Present</span></td><td>—</td></tr>
+            <tr><td>Jul 31, 2026</td><td>Friday</td><td><span class="badge badge-success">Present</span></td><td>—</td></tr>
+            <tr><td>Jul 30, 2026</td><td>Thursday</td><td><span class="badge badge-warning">Late</span></td><td>Arrived 15 mins late</td></tr>
+            <tr><td>Jul 29, 2026</td><td>Wednesday</td><td><span class="badge badge-danger">Absent</span></td><td>Medical appointment</td></tr>
+            <tr><td>Jul 28, 2026</td><td>Tuesday</td><td><span class="badge badge-success">Present</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GRADES / GPA  -->
+     <section class="page" id="page-grades">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Term 2 · 2025/2026</p>
+          <h1>Grades / GPA</h1>
+        </div>
+        <button class="btn-outline"><i class="fa-solid fa-download"></i> Download report</button>
+      </div>
+
+      <div class="grid-3">
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-chart-line"></i></div>
+          <div><p class="stat-label">Current GPA</p><p class="stat-value">3.8</p></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-trophy"></i></div>
+          <div><p class="stat-label">Class rank</p><p class="stat-value">2nd / 34</p></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div><p class="stat-label">Trend vs last term</p><p class="stat-value">+0.3</p></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Courses Grades</h3></div>
+        <table class="table">
+          <thead><tr><th>Courses</th><th>CA (30)</th><th>Exam (70)</th><th>Total</th><th>Grade</th></tr></thead>
+          <tbody>
+            <tr><td>Web Development</td><td>26</td><td>62</td><td>88</td><td><span class="badge badge-success">A</span></td></tr>
+            <tr><td>Data Analytics</td><td>22</td><td>58</td><td>80</td><td><span class="badge badge-success">A</span></td></tr>
+            <tr><td>UI/UX</td><td>24</td><td>60</td><td>84</td><td><span class="badge badge-success">A</span></td></tr>
+            <tr><td>Robotics</td><td>20</td><td>50</td><td>70</td><td><span class="badge badge-warning">B</span></td></tr>
+            <tr><td>Cloud Computing</td><td>19</td><td>48</td><td>67</td><td><span class="badge badge-warning">B</span></td></tr>
+            <tr><td>Computer Networking</td><td>27</td><td>65</td><td>92</td><td><span class="badge badge-success">A</span></td></tr>
+            <tr><td>Information Systems</td><td>18</td><td>45</td><td>63</td><td><span class="badge badge-neutral">C</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS  -->
+     <section class="page" id="page-assignments">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">4 due this week</p>
+          <h1>Assignments</h1>
+        </div>
+        <button class="btn-primary"><i class="fa-solid fa-plus"></i> New submission</button>
+      </div>
+
+      <div class="card">
+        <table class="table">
+          <thead><tr><th>Course</th><th>Task</th><th>Assigned</th><th>Due</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><span class="dot-tag" style="background:var(--primary)"></span>Chemistry</td><td>Titration lab report</td><td>Jul 28</td><td>Aug 6</td><td><span class="badge badge-warning">Pending</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:var(--secondary)"></span>Mathematics</td><td>Calculus problem set 4</td><td>Jul 30</td><td>Aug 7</td><td><span class="badge badge-warning">Pending</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:#22c55e"></span>Biology</td><td>Cell division essay</td><td>Jul 25</td><td>Aug 9</td><td><span class="badge badge-success">Submitted</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:#a855f7"></span>Literature</td><td>Poetry analysis</td><td>Aug 1</td><td>Aug 11</td><td><span class="badge badge-neutral">Not started</span></td></tr>
+            <tr><td><span class="dot-tag" style="background:#ca8a04"></span>Computer Science</td><td>Sorting algorithm demo</td><td>Jul 20</td><td>Jul 30</td><td><span class="badge badge-danger">Overdue</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- TIMETABLE  -->
+     <section class="page" id="page-timetable">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Week of Aug 3 – Aug 7</p>
+          <h1>Timetable</h1>
+        </div>
+        <button class="btn-outline"><i class="fa-solid fa-print"></i> Print</button>
+      </div>
+
+      <div class="card timetable-card">
+        <table class="table timetable">
+          <thead>
+            <tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08:00</td>
+              <td><span class="tt-pill" style="background:#dbeafe;color:var(--primary)">Web Development</span></td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+              <td><span class="tt-pill" style="background:#f3e8ff;color:#a855f7">Data Analytics</span></td>
+              <td><span class="tt-pill" style="background:#fef9c3;color:#ca8a04">Python</span></td>
+            </tr>
+            <tr>
+              <td>09:40</td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+              <td><span class="tt-pill" style="background:#dbeafe;color:var(--primary)">Web Development</span></td>
+              <td><span class="tt-pill" style="background:#fee2e2;color:var(--danger)">Computer Networking</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+            </tr>
+            <tr>
+              <td>11:20</td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+              <td><span class="tt-pill muted-pill">Break</span></td>
+            </tr>
+            <tr>
+              <td>11:40</td>
+              <td><span class="tt-pill" style="background:#f3e8ff;color:#a855f7">Data Analytics</span></td>
+              <td><span class="tt-pill" style="background:#fef9c3;color:#ca8a04">Python</span></td>
+              <td><span class="tt-pill" style="background:#dbeafe;color:var(--primary)">Web Development</span></td>
+              <td><span class="tt-pill" style="background:#ffedd5;color:var(--secondary)">Robotics</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td><span class="tt-pill" style="background:#fee2e2;color:var(--danger)">Computer Networking</span></td>
+              <td><span class="tt-pill" style="background:#dcfce7;color:var(--success)">UI/UX</span></td>
+              <td><span class="tt-pill" style="background:#f3e8ff;color:#a855f7">Data Analytics</span></td>
+              <td><span class="tt-pill" style="background:#fef9c3;color:#ca8a04">Python</span></td>
+              <td><span class="tt-pill muted-pill">Free period</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ANNOUNCEMENTS -->
+    <section class="page" id="page-announcements">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">5 new</p>
+          <h1>Announcements</h1>
+        </div>
+        <button class="btn-outline" id="markAllReadBtn"><i class="fa-solid fa-envelope-open-text"></i> Mark all read</button>
+      </div>
+
+      <div class="announce-list" id="announceList">
+        <div class="card announce-card">
+          <div class="ann-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-bullhorn"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Mid-term exams timetable released</h3><span class="ann-time">2h ago</span></div>
+            <p class="muted">The mid-term examination schedule for all SS2 classes has been posted on the notice board and portal.</p>
+          </div>
+        </div>
+        <div class="card announce-card">
+          <div class="ann-icon" style="background:#ffedd5;color:var(--secondary)"><i class="fa-solid fa-bus"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>School bus route change</h3><span class="ann-time">1 day ago</span></div>
+            <p class="muted">Route B pickup point moves to Gate 2 starting Monday due to ongoing road construction.</p>
+          </div>
+        </div>
+        <div class="card announce-card">
+          <div class="ann-icon" style="background:#dcfce7;color:var(--success)"><i class="fa-solid fa-trophy"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Inter-house sports registration open</h3><span class="ann-time">3 days ago</span></div>
+            <p class="muted">Sign up with your house captain before Friday to compete in this term's inter-house sports events.</p>
+          </div>
+        </div>
+        <div class="card announce-card">
+          <div class="ann-icon" style="background:#fee2e2;color:var(--danger)"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Library closed for stock-taking</h3><span class="ann-time">4 days ago</span></div>
+            <p class="muted">The main library will be closed from Aug 12 to Aug 14 for annual stock-taking. Online catalogue stays available.</p>
+          </div>
+        </div>
+        <div class="card announce-card">
+          <div class="ann-icon" style="background:#f3e8ff;color:#a855f7"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Coding club hackathon: register now</h3><span class="ann-time">5 days ago</span></div>
+            <p class="muted">Teams of up to 4 can register for the 24-hour hackathon happening next weekend in the CS lab.</p>
+          </div>
+        </div>
+        <div class="card announce-card">
+          <div class="ann-icon" style="background:#dbeafe;color:var(--primary)"><i class="fa-solid fa-money-bill-wave"></i></div>
+          <div class="ann-body">
+            <div class="ann-top"><h3>Second instalment fees deadline</h3><span class="ann-time">1 week ago</span></div>
+            <p class="muted">Second instalment school fees are due by Aug 20. Payment can be made through the portal or bursary.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+     <section class="page" id="page-settings">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Manage your account</p>
+          <h1>Settings</h1>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h3>Account</h3></div>
+          <div class="form-row">
+            <label>Full name</label>
+            <input type="text" id="settingsFullName" value="Amara Chidinma Nwosu">
+          </div>
+          <div class="form-row">
+            <label>Email address</label>
+            <input type="email" value="amara.nwosu@school.edu">
+          </div>
+          <div class="form-row">
+            <label>Phone number</label>
+            <input type="text" value="+234 802 555 0148">
+          </div>
+          <button class="btn-primary">Save changes</button>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Preferences</h3></div>
+          <div class="toggle-row">
+            <div><p class="toggle-title">Email notifications</p><p class="muted">Grades, announcements and reminders</p></div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div><p class="toggle-title">SMS alerts</p><p class="muted">Attendance and urgent notices only</p></div>
+            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div><p class="toggle-title">Dark mode</p><p class="muted">Switch to a darker interface. Your choice is remembered.</p></div>
+            <label class="switch"><input type="checkbox" id="darkModeToggle"><span class="slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div><p class="toggle-title">Two-factor authentication</p><p class="muted">Add an extra layer of security</p></div>
+            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</section>
+
+<!-- Logout confirmation modal -->
+<div class="modal-overlay" id="logoutModal">
+  <div class="modal">
+    <div class="modal-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+    <h3>Log out of Gradely?</h3>
+    <p class="muted">You'll need to sign in again to access your dashboard.</p>
+    <div class="modal-actions">
+      <button class="btn-outline" id="cancelLogout">Cancel</button>
+      <button class="btn-danger" id="confirmLogout">Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit profile modal -->
+<div class="modal-overlay" id="editProfileModal">
+  <div class="modal">
+    <div class="modal-icon" style="background:var(--primary-light);color:var(--primary)"><i class="fa-solid fa-pen"></i></div>
+    <h3>Edit your name</h3>
+    <p class="muted">This updates your name across the dashboard.</p>
+    <div class="form-row" style="text-align:left">
+      <label>Full name</label>
+      <input type="text" id="editProfileInput">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-outline" id="cancelEditProfile">Cancel</button>
+      <button class="btn-primary" id="saveEditProfile">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Calendar pop-up -->
+<div class="modal-overlay" id="calendarModal">
+  <div class="modal calendar-modal-box">
+    <div class="calendar-header">
+      <button class="cal-nav-btn" id="calPrevBtn" aria-label="Previous month"><i class="fa-solid fa-chevron-left"></i></button>
+      <h3 id="calendarMonthLabel">August 2026</h3>
+      <button class="cal-nav-btn" id="calNextBtn" aria-label="Next month"><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="modal-close-btn" id="closeCalendar" aria-label="Close calendar">&times;</button>
+    </div>
+    <div class="calendar-weekdays">
+      <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+    </div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+</div>
+
+<script src="asset/script.js"></script>
+</body>
+</html>
