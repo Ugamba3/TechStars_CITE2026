@@ -1,0 +1,655 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  scroll-behavior: smooth ;
+}
+
+:root {
+  
+  --color-primary: #2563eb;      /* blue   */
+  --color-secondary: #f97316;    /* orange */
+  --color-bg: #f5f7fb;           /* light grey page background */
+  --color-surface: #ffffff;      /* white cards */
+  --color-text-primary: #1f2937; /* dark heading text */
+  --color-text-secondary: #6b7280; /* grey paragraph text */
+  --color-border: #e5e7eb;
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  line-height: 1.5;
+  
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+/* -----------------------------------------------------------------
+   2. REUSABLE HELPERS
+   ----------------------------------------------------------------- */
+
+/* Centers content and stops it from stretching too wide on big screens */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s, opacity 0.15s ease;
+}
+
+.btn:hover {
+  padding-right: 27px;
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.btn--lg {
+   padding: 10px 20px;
+   font-size: 16px;
+   border-radius: 25px;
+   }
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn--outline-light {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn i.pointer {
+  transition: all .3s;
+}
+
+.btn:hover i.pointer {
+  transform: translateX(6px);
+}
+
+/* --- Small pill-shaped badge (used in hero, partners, CTA) --- */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.badge-pill--light {
+  background: #eef2ff;
+  border: none;
+  color: var(--color-primary);
+}
+
+/* --- Section titles / subtitles used more than once --- */
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 17px;
+  max-width: 640px;
+  margin: 0 auto 48px auto;
+}
+
+.section-header { margin-bottom: 8px; }
+
+.eyebrow {
+  display: block;
+  text-align: center;
+  color: var(--color-primary);
+  background: #c0d8ff;
+  width: fit-content;
+  margin: 0 auto 16px auto;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* -----------------------------------------------------------------
+   4. HERO 
+   ----------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #3b82f6 100%);
+  padding: 80px 0 140px 0;
+  /* the diagonal cut along the bottom edge, like in the recording */
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+/* soft glowing circle in the bottom-left of the hero */
+.hero__glow {
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+.hero__glow2 {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.hero__content {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__title {
+  color: #fff;
+  font-size: 52px;
+  margin-top: 24px;
+}
+
+.hero__title--accent {
+  color: #facc15; /* gold/yellow accent used for "together." */
+}
+
+.hero__subtitle {
+  color: #dbeafe;
+  max-width: 640px;
+  margin-top: 24px;
+  font-size: 17px;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* -----------------------------------------------------------------
+   5. WHY PARTNER CARDS
+   ----------------------------------------------------------------- */
+
+.why-partner {
+  padding: 94px 0 94px 0;
+}
+
+.why-partner__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow:
+  0 3px 6px rgba(3, 96, 235, 0.183);
+  padding: 13px;
+}
+
+.feature-card__icon {
+  width: 41px;
+  height: 41px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.feature-card__icon--blue   { background: #dbeafe; color: var(--color-primary); }
+.feature-card__icon--orange { background: #ffedd5; color: var(--color-secondary); }
+.feature-card__icon--green  { background: #dcfce7; color: #16a34a; }
+
+.feature-card h3 { font-size: 17px; margin-bottom: 12px; }
+.feature-card p { color: var(--color-text-secondary); font-size: 13px; margin-bottom: 10px; }
+
+.learn-more { font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.learn-more--blue   { color: var(--color-primary); }
+.learn-more--orange { color: var(--color-secondary); }
+.learn-more--green  { color: #16a34a; }
+
+
+/* -----------------------------------------------------------------
+   6. COLLABORATORS CARDS
+   ----------------------------------------------------------------- */
+
+.collaborators {
+   border-radius: 20px;
+   background:rgba(208, 220, 255, 0.2);
+   padding: 90px 0 60px 0;
+}
+
+.collaborators__grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+ 
+}
+
+.person-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 15px;
+  max-width: 1040px;
+  box-shadow: 0 4px 10px rgba(32, 31, 31, 0.233);
+}
+
+.person-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.person-card__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.person-card__badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Each collaborator has their own accent colour */
+.person-card__avatar--blue,  .person-card__badge--blue   { background: #dbeafe; color: var(--color-primary); }
+.person-card__avatar--purple,.person-card__badge--purple { background: #ede9fe; color: #7c3aed; }
+.person-card__avatar--orange,.person-card__badge--orange { background: #ffedd5; color: var(--color-secondary); }
+.person-card__avatar--green, .person-card__badge--green  { background: #dcfce7; color: #16a34a; }
+.person-card__avatar--cyan,  .person-card__badge--cyan   { background: #cffafe; color: #0891b2; }
+
+.person-card h3 { font-size: 16px; margin-bottom: 4px; }
+.person-card__role { font-weight: 600; font-size: 13px; margin-bottom: 6px; }
+.person-card__role--blue   { color: var(--color-primary); }
+.person-card__role--purple { color: #7c3aed; }
+.person-card__role--orange { color: var(--color-secondary); }
+.person-card__role--green  { color: #16a34a; }
+.person-card__role--cyan   { color: #0891b2; }
+
+.person-card__org {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  margin-bottom: 14px;
+}
+
+.person-card__bio {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.person-card__tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tag {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.tag--blue   { background: #dbeafe; color: var(--color-primary); }
+.tag--purple { background: #ede9fe; color: #7c3aed; }
+.tag--orange { background: #ffedd5; color: var(--color-secondary); }
+.tag--green  { background: #dcfce7; color: #16a34a; }
+.tag--cyan   { background: #cffafe; color: #0891b2; }
+
+/* trust badges row (peer-reviewed / accredited / top-rated) */
+.trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.trust-row__icon--green  { color: #16a34a; }
+.trust-row__icon--blue   { color: var(--color-primary); }
+.trust-row__icon--orange { color: var(--color-secondary); }
+
+
+.stats-section {
+  padding: 60px 0 90px 0; /* breathing room above/below the stat cards */
+}
+
+.stats {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stats__card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.stats__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.stats__icon--blue   { background: #dbeafe; color: var(--color-primary); }
+.stats__icon--orange { background: #ffedd5; color: var(--color-secondary); }
+.stats__icon--green  { background: #dcfce7; color: #16a34a; }
+.stats__icon--purple { background: #ede9fe; color: #7c3aed; }
+
+.stats__number { font-size: 30px; font-weight: 800; }
+.stats__label { color: var(--color-text-secondary); font-size: 14px; margin-top: 4px; }
+
+
+/* -----------------------------------------------------------------
+   7. PARTNER LOGOS MARQUEE (auto-scrolling strip)
+   ----------------------------------------------------------------- */
+
+.partners {
+  position: relative;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+  padding: 90px 0 60px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 92%);
+}
+
+.partners__intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+
+.partners__title { color: #fff; font-size: 32px; }
+.partners__subtitle { color: #dbeafe; font-size: 16px; }
+
+/* The visible "window" that hides the overflowing logo strip */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* The long row of logos — it's twice as long as what's visible
+   because we duplicated the logos in the HTML, so the animation
+   can loop seamlessly from -50% back to 0. */
+.marquee__track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll-left 35s linear infinite;
+}
+.reverse {
+  animation: scroll-right 35s linear infinite;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.logo-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.logo-pill__icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* one colour per company, cycling through the palette */
+.logo-pill__icon--1  { background: #1e3a8a; }
+.logo-pill__icon--2  { background: #38bdf8; }
+.logo-pill__icon--3  { background: #84cc16; }
+.logo-pill__icon--4  { background: #7f1d1d; }
+.logo-pill__icon--5  { background: #dc2626; }
+.logo-pill__icon--6  { background: #dc2626; }
+.logo-pill__icon--7  { background: #2563eb; }
+.logo-pill__icon--8  { background: #1d4ed8; }
+.logo-pill__icon--9  { background: #06b6d4; }
+.logo-pill__icon--10 { background: #f97316; }
+.logo-pill__icon--11 { background: #f59e0b; }
+.logo-pill__icon--12 { background: #374151; }
+.logo-pill__icon--13 { background: #db2777; }
+.logo-pill__icon--14 { background: #0f172a; }
+.logo-pill__icon--15 { background: #22c55e; }
+.logo-pill__icon--16 { background: #dc2626; }
+
+.partners__count {
+  text-align: center;
+  color: #bfdbfe;
+  font-size: 14px;
+  margin-top: 36px;
+}
+
+
+/* -----------------------------------------------------------------
+   8. CALL TO ACTION (CTA)
+   ----------------------------------------------------------------- */
+
+.cta { padding: 100px 0; }
+
+.cta__card {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(180deg, #fff7ed 0%, #eff6ff 100%);
+  border-radius: 24px;
+  padding: 56px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta__icon {
+  width: 56px;
+  height: 56px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 20px auto;
+}
+
+.cta__title {
+  font-size: 34px;
+  margin: 20px 0 16px 0;
+}
+
+.cta__title--accent { color: var(--color-primary); }
+
+.cta__subtitle {
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  margin: 0 auto 32px auto;
+  font-size: 15px;
+}
+
+.cta__form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta__input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0 16px;
+  color: var(--color-text-secondary);
+  min-width: 280px;
+}
+
+.cta__input input {
+  border: none;
+  outline: none;
+  padding: 14px 0;
+  font-family: inherit;
+  font-size: 15px;
+  flex: 1;
+}
+
+.cta__note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+
+/* -----------------------------------------------------------------
+   10. RESPONSIVE (MOBILE) RULES
+   ----------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .hero__title { font-size: 38px; }
+
+  .stats { grid-template-columns: repeat(2, 1fr); }
+
+  .why-partner__grid,
+  .collaborators__grid { grid-template-columns: 1fr; }
+
+  .cta__form { flex-direction: column; }
+  .cta__input { min-width: 100%; }
+
+}
+
+/*.stats__icon {
+  animation: float 2.5s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+.stats__icon {
+  animation: pop-in 0.5s ease;
+}
+@keyframes pop-in {
+  0%   { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}*/
+
+.stats__icon {
+  transition: transform 0.2s ease;
+}
+.stats__card:hover .stats__icon {
+  transform: scale(1.1) rotate(-4deg);
+}
