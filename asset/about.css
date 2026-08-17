@@ -30,25 +30,121 @@
   --transition: all linear .3s;
 }
 
+
+/*=========================
+Top Navbar
+=========================*/
+
 header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 8px 50px;
-    background-color: var(--background);
-    font-family: "Outfit", sans-serif;
-    z-index: 1;
-    box-shadow: 0 3px 4px var(--shadow);
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 10px 70px;
+    background: linear-gradient(to right, #2563eb, #0643c5, #023094);
+    box-shadow: 0 10px 10px #00000036;
 }
+
+
+/* Logo */
 
 .logo{
-    width: 140px;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:var(--secondary);
 }
 
-/* .logo{
-    font-size: 1em;
-} */
+
+/* Right Buttons */
+
+.buttons{
+    display:flex;
+    align-items:center;
+    gap: 55px;
+}
+
+
+.signin{  
+    text-decoration: none;
+    padding: 10px 10px;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    background: transparent;
+    color:var(--secondary);
+    border: 2px solid var(--secondary);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;  
+    box-shadow: 0 4px 5px gray;
+}
+
+.signin:hover{
+    background: rgba(0,0,0);
+    backdrop-filter: blur(10px);
+    color:white;
+}
+
+
+.register{
+text-decoration: none;
+    padding: 10px 10px;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    background: white;
+    color:var(--primary);
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;  
+    box-shadow: 0 4px 5px gray;
+}
+
+.register:hover{
+    background:white;
+    backdrop-filter: blur(10px);
+    color:black;
+}
+
+
+.main-navbar{
+    margin: 10px auto;
+    background:var(--surface);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    width:50%;
+    border-radius:60px;
+    border: 1px solid var(--border);
+    box-shadow:0 4px 10px #05050550;
+    padding:18px 0;
+}
+
+
+.nav-links{
+    display:flex;
+    justify-content: space-evenly;
+    align-items:center;
+    list-style:none;
+}
+
+
+.nav-links li a{
+    position: relative;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    color:#111827;
+    font-size:15px;
+    font-weight:bold;
+    padding:10px 5px;
+    transition:.3s;
+}
+
+.nav-links li a:hover{
+    color:#2563eb;
+}
 
 
 /* SECTION STYLING */
