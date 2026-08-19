@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStars | About Us</title>
+  <link rel="stylesheet" href="asset/aboutUs.css">
+</head>
+<body>
+  
+  <header>
+    <img src="media/about-page-media/TechStars_Logo.png" alt="" class="logo">
+    <div class="navigation">
+      <nav>
+        <a href="index.html">home</a>
+        <a href="pc.html">partnership</a>
+        <a href="order.html">materials</a>
+        <a href="student_dashboard.html">students</a>
+        <a href="#" class="active">about us</a>
+      </nav>
+      <div class="header-icons">
+        <div class="notifications">
+          <i class="fa-regular fa-bell header-icon notification"></i>
+        </div>
+        <div class="mails">
+          <i class="fa-regular fa-envelope header-icon notification"></i>
+        </div>
+        <div class="profile">
+          <i class="fa-regular fa-user header-icon"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <!-- Background Slideshow Container -->
+    <div class="hero-slideshow">
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80');"> </div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80');"></div>
+    </div>
+
+    <!-- Dark Overlay to keep text legible -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1>Master Any Tech Skill<br>You Want!</h1>
+      <p>
+        Interactive coding, robotics, and digital design tracks tailored for kids and teens ages 8 to 18.
+      </p>
+      <div class="hero-button">
+        <a href="skills">
+          <button>Explore Skills</button>
+        </a>
+        <a href="#contact">
+          <button>Join Bootcamp</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Progress Stats Section -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stats-grid">
+
+        <!-- Stat 1 -->
+        <div class="stat-card">
+          <h3 class="stat-number">850+</h3>
+          <p class="stat-label">Active Tech Stars</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="stat-card">
+          <h3 class="stat-number">1,200+</h3>
+          <p class="stat-label">Projects Built</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="stat-card">
+          <h3 class="stat-number">94%</h3>
+          <p class="stat-label">Completion Rate</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="stat-card">
+          <h3 class="stat-number">5 Tracks</h3>
+          <p class="stat-label">Ages 8–18 Covered</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="about">
+    <div class="about-container">
+      <div class="about-content">
+        <h1>Let’s Start Your <span>Tech Education!</span></h1>
+        <p>
+          At TechStars, we turn curiosity into high-value digital skills. Our bootcamp equips young minds aged 8–18 with the exact tools used by real-world tech professionals—from full-stack web development and AI to 3D modeling and design thinking.
+        </p>
+        <button>Read Our Story</button>
+      </div>
+      <div class="about-img">
+        <img src="media/about-page-media/about-bg.webp" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="carousel">
+      <div class="slider">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+      </div>
+      <div aria-hidden class="slider">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
+      </div>
+  </div>
+
+
+  <section id="team">
+    <div class="team-body">
+      <div class="team-header">
+        <div class="team-head">
+          <h2>OUR EXPERTS</h2>
+          <p class="team-discription">
+            Passionate tech industry professionals, engineers, and designers dedicated to mentoring the next generation of innovators.
+          </p>
+        </div>
+        <div class="team-nav">
+          <p>Click to see the team</p>
+          <div class="team-buttons">
+            <button class="web-btn" onclick="team('web-dev', 'web-team','web-btn')">Web Dev</button>
+            <button class="rob-btn" onclick="team('robotics', 'robotics-team','rob-btn')">Robotics</button>
+            <button class="design-btn" onclick="team('design', 'design-team','design-btn')">UI/UX Design</button>
+            <button class="data-btn" onclick="team('data', 'data-team','data-btn')">AI & Data</button>
+            <button class="tech-btn" onclick="team('tech', 'tech-team','tech-btn')">3D & MsOffice</button>
+          </div>
+        </div>
+      </div>
+      <div class="team-container">
+        <div class="instructor web-dev active">
+          <img src="media/about-page-media/instructor_2.png" alt="">
+          <div class="instructor-discription">
+            <h2>Alex Rivera</h2>
+            <span>Full-Stack Web Dev</span>
+          </div>
+        </div>
+
+        <div class="instructors web-team">
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructor robotics active">
+          <img src="media/about-page-media/instructor_2.png" alt="">
+          <div class="instructor-discription">
+            <h2>Dr. Marcus Chen</h2>
+            <span>Robotics & Hardware</span>
+          </div>
+        </div>
+
+        <div class="instructors robotics-team">
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructor design active">
+          <img src="media/about-page-media/instructor_2.png" alt="">
+          <div class="instructor-discription">
+            <h2>Sarah Jenkins</h2>
+            <span>UI/UX & Visual Design</span>
+          </div>
+        </div>
+
+        <div class="instructors design-team">
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructor data active">
+          <img src="media/about-page-media/instructor_2.png" alt="">
+          <div class="instructor-discription">
+            <h2>David O'Connor</h2>
+            <span>Data Scientist & AI</span>
+          </div>
+        </div>
+
+        <div class="instructors data-team">
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructor tech active">
+          <img src="media/about-page-media/instructor_2.png" alt="">
+          <div class="instructor-discription">
+            <h2>Maya Patel</h2>
+            <span>3D Designer & Tech</span>
+          </div>
+        </div>
+
+        <div class="instructors tech-team">
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+          <div class="team">
+            <img src="media/about-page-media/instructor_2.png" alt="">
+            <div class="team-mate">
+              <h2>Alex Rivera</h2>
+              <span>Full-Stack Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="new-container">
+      <h3>Newsletter</h3>
+      <p>
+        Sign in to receive the latest tech news and updates.
+      </p>
+      <form action="#">
+        <input type="text">
+        <input type="submit">
+      </form>
+    </div>
+  </section>
+
+  <footer>
+
+    <div class="footer-top-row">
+      <div class="footer-col foot-discription">
+        <img src="media/about-page-media/TechStars_Logo.png" alt="">
+        <p>
+          Delivering the latest technology news, insights, reviews and innovations from around the world. Stay informed. Stay ahead.
+        </p>
+        <div class="footer-social">
+          <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+          <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+          <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"></div>
+      <div class="footer-col"></div>
+      <div class="footer-col">
+        <h3 class="foot-title">Quick Links</h3>
+        <ul class="foot-link">
+          <a href="#Home">Home</a>
+          <a href="#About-us">About Us</a>
+          <a href="#Services">Services</a>
+          <a href="#Projects">Projects</a>
+          <a href="#Blog">Blog</a>
+          <a href="#Contact">Contact</a>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="foot-title">Resources</h3>
+        <ul class="foot-link">
+          <a href="#Privacy">Privacy Policy</a>
+          <a href="#t&c">Terms & Conditions</a>
+          <a href="#Disclaimer">Disclaimer</a>
+          <a href="#FAQ">FAQ</a>
+          <a href="#Support">Support</a>
+        </ul>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="https://kit.fontawesome.com/13f42163ac.js" crossorigin="anonymous"></script>
+  <script src="asset/aboutUs.js"></script>
+
+</body>
+</html>
