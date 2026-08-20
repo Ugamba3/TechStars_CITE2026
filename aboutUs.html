@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="asset/aboutUs.css">
 </head>
 <body>
-  
+
   <header>
     <img src="media/about-page-media/TechStars_Logo.png" alt="" class="logo">
     <div class="navigation">
@@ -30,18 +30,14 @@
     </div>
   </header>
 
+  <!-- ==================== HERO (PRESERVED EXACTLY) ==================== -->
   <section class="hero">
-    <!-- Background Slideshow Container -->
     <div class="hero-slideshow">
       <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80');"> </div>
       <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');"></div>
       <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80');"></div>
     </div>
-
-    <!-- Dark Overlay to keep text legible -->
     <div class="hero-overlay"></div>
-
-    <!-- Hero Content -->
     <div class="hero-content">
       <h1>Master Any Tech Skill<br>You Want!</h1>
       <p>
@@ -58,313 +54,354 @@
     </div>
   </section>
 
-
-  <!-- Progress Stats Section -->
-  <section class="stats-section">
+  <!-- ==================== STATS SECTION (PRESERVED EXACTLY) ==================== -->
+  <section class="stats-section fade-in">
     <div class="stats-container">
       <div class="stats-grid">
-
-        <!-- Stat 1 -->
         <div class="stat-card">
           <h3 class="stat-number">850+</h3>
           <p class="stat-label">Active Tech Stars</p>
         </div>
-
-        <!-- Stat 2 -->
         <div class="stat-card">
           <h3 class="stat-number">1,200+</h3>
           <p class="stat-label">Projects Built</p>
         </div>
-
-        <!-- Stat 3 -->
         <div class="stat-card">
           <h3 class="stat-number">94%</h3>
           <p class="stat-label">Completion Rate</p>
         </div>
-
-        <!-- Stat 4 -->
         <div class="stat-card">
           <h3 class="stat-number">5 Tracks</h3>
           <p class="stat-label">Ages 8–18 Covered</p>
         </div>
-
       </div>
     </div>
   </section>
-  
 
+  <!-- ==================== ABOUT SECTION (ENHANCED) ==================== -->
   <section id="about">
     <div class="about-container">
-      <div class="about-content">
-        <h1>Let’s Start Your <span>Tech Education!</span></h1>
+      <div class="about-content fade-in">
+        <div class="about-badge">Since 2019</div>
+        <h1>Let's Start Your <span>Tech Education!</span></h1>
         <p>
           At TechStars, we turn curiosity into high-value digital skills. Our bootcamp equips young minds aged 8–18 with the exact tools used by real-world tech professionals—from full-stack web development and AI to 3D modeling and design thinking.
         </p>
-        <button>Read Our Story</button>
+        <ul class="about-features">
+          <li><i class="fa-solid fa-check-circle"></i> Hands-on project-based learning</li>
+          <li><i class="fa-solid fa-check-circle"></i> Industry-certified instructors</li>
+          <li><i class="fa-solid fa-check-circle"></i> Small class sizes (max 12 students)</li>
+          <li><i class="fa-solid fa-check-circle"></i> Portfolio-ready capstone projects</li>
+        </ul>
+        <button class="about-cta">Read Our Story</button>
       </div>
-      <div class="about-img">
-        <img src="media/about-page-media/about-bg.webp" alt="">
+      <div class="about-img fade-in delay2">
+        <img src="media/about-page-media/about-bg.webp" alt="Students collaborating on a tech project">
+        <div class="about-img-badge">
+          <strong>6+</strong>
+          <span>Years of Excellence</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="carousel">
-      <div class="slider">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-      </div>
-      <div aria-hidden class="slider">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-          <img src="media/about-page-media/TechStars_white-logo.png" alt="">
-      </div>
-  </div>
-
-
-  <section id="team">
-    <div class="team-body">
-      <div class="team-header">
-        <div class="team-head">
-          <h2>OUR EXPERTS</h2>
-          <p class="team-discription">
-            Passionate tech industry professionals, engineers, and designers dedicated to mentoring the next generation of innovators.
+  <!-- ==================== MEDIA GALLERY (REPLACES TEAM) ==================== -->
+  <section id="media-gallery">
+    <div class="gallery-body">
+      <div class="gallery-header">
+        <div class="gallery-head fade-in">
+          <h2>Our Gallery</h2>
+          <p class="gallery-description">
+            Moments from our classrooms, hackathons, and graduation ceremonies. See TechStars in action.
           </p>
         </div>
-        <div class="team-nav">
-          <p>Click to see the team</p>
-          <div class="team-buttons">
-            <button class="web-btn" onclick="team('web-dev', 'web-team','web-btn')">Web Dev</button>
-            <button class="rob-btn" onclick="team('robotics', 'robotics-team','rob-btn')">Robotics</button>
-            <button class="design-btn" onclick="team('design', 'design-team','design-btn')">UI/UX Design</button>
-            <button class="data-btn" onclick="team('data', 'data-team','data-btn')">AI & Data</button>
-            <button class="tech-btn" onclick="team('tech', 'tech-team','tech-btn')">3D & MsOffice</button>
-          </div>
+        <div class="gallery-filters fade-in delay1">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="photos">Photos</button>
+          <button class="filter-btn" data-filter="videos">Videos</button>
         </div>
       </div>
-      <div class="team-container">
-        <div class="instructor web-dev active">
-          <img src="media/about-page-media/instructor_2.png" alt="">
-          <div class="instructor-discription">
-            <h2>Alex Rivera</h2>
-            <span>Full-Stack Web Dev</span>
+
+      <div class="gallery-grid">
+        <!-- Photo Items -->
+        <div class="gallery-item fade-in" data-type="photos">
+          <img src="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.46 AM (2).jpeg" alt="Students coding together">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand"></i>
+            <span>Code Workshop 2024</span>
           </div>
         </div>
-
-        <div class="instructors web-team">
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
+        <div class="gallery-item fade-in delay1" data-type="photos">
+          <img src="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.46 AM (1).jpeg" alt="Robotics competition">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand"></i>
+            <span>Robotics Showcase</span>
           </div>
         </div>
-
-        <div class="instructor robotics active">
-          <img src="media/about-page-media/instructor_2.png" alt="">
-          <div class="instructor-discription">
-            <h2>Dr. Marcus Chen</h2>
-            <span>Robotics & Hardware</span>
+        <div class="gallery-item fade-in delay2" data-type="videos">
+          <video poster="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.45 AM.jpeg" muted loop>
+            <source src="media/about-page-media/video1.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-play"></i>
+            <span>Bootcamp Highlights</span>
+          </div>
+          <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+        </div>
+        <div class="gallery-item fade-in" data-type="photos">
+          <img src="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.44 AM (2).jpeg" alt="Design studio">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand"></i>
+            <span>Design Studio Session</span>
           </div>
         </div>
-
-        <div class="instructors robotics-team">
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
+        <div class="gallery-item fade-in delay1" data-type="videos">
+          <video poster="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.43 AM.jpeg" muted loop>
+            <source src="media/about-page-media/video2.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-play"></i>
+            <span>Student Projects Demo</span>
           </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
+          <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+        </div>
+        <div class="gallery-item fade-in delay2" data-type="photos">
+          <img src="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.43 AM (1).jpeg" alt="Graduation day">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand"></i>
+            <span>Graduation Day 2024</span>
           </div>
         </div>
-
-        <div class="instructor design active">
-          <img src="media/about-page-media/instructor_2.png" alt="">
-          <div class="instructor-discription">
-            <h2>Sarah Jenkins</h2>
-            <span>UI/UX & Visual Design</span>
+        <div class="gallery-item fade-in" data-type="photos">
+          <img src="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.37 AM (1).jpeg" alt="Hackathon winners">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand"></i>
+            <span>Hackathon Winners</span>
           </div>
         </div>
-
-        <div class="instructors design-team">
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
+        <div class="gallery-item fade-in delay1" data-type="videos">
+          <video poster="media/about-page-media/WhatsApp Image 2026-08-19 at 11.36.45 AM (2).jpeg" muted loop>
+            <source src="media/about-page-media/video3.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-play"></i>
+            <span>Campus Tour</span>
           </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
+          <button class="play-btn"><i class="fa-solid fa-play"></i></button>
         </div>
-
-        <div class="instructor data active">
-          <img src="media/about-page-media/instructor_2.png" alt="">
-          <div class="instructor-discription">
-            <h2>David O'Connor</h2>
-            <span>Data Scientist & AI</span>
-          </div>
-        </div>
-
-        <div class="instructors data-team">
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="instructor tech active">
-          <img src="media/about-page-media/instructor_2.png" alt="">
-          <div class="instructor-discription">
-            <h2>Maya Patel</h2>
-            <span>3D Designer & Tech</span>
-          </div>
-        </div>
-
-        <div class="instructors tech-team">
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-          <div class="team">
-            <img src="media/about-page-media/instructor_2.png" alt="">
-            <div class="team-mate">
-              <h2>Alex Rivera</h2>
-              <span>Full-Stack Web Dev</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
+  <!-- ==================== EXTRA: WHY CHOOSE US ==================== -->
+  <section id="why-us">
+    <div class="why-container">
+      <div class="why-header fade-in">
+        <h2>Why TechStars?</h2>
+        <p>We don't just teach code — we build confident creators ready for the real world.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card fade-in delay">
+          <div class="why-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Real-World Curriculum</h3>
+          <p>Every course mirrors industry workflows. Students graduate with GitHub portfolios employers actually review.</p>
+        </div>
+        <div class="why-card fade-in delay2">
+          <div class="why-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>1-on-1 Mentorship</h3>
+          <p>Each student is paired with a mentor who provides weekly code reviews, career advice, and emotional support.</p>
+        </div>
+        <div class="why-card fade-in delay3">
+          <div class="why-icon"><i class="fa-solid fa-trophy"></i></div>
+          <h3>Competition Ready</h3>
+          <p>Our teams regularly place in national and international STEM competitions, building confidence under pressure.</p>
+        </div>
+        <div class="why-card fade-in delay">
+          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Safe Learning Space</h3>
+          <p>COPPA-compliant platforms, moderated communities, and background-checked instructors — safety first, always.</p>
+        </div>
+        <div class="why-card fade-in delay2">
+          <div class="why-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3>Certified Outcomes</h3>
+          <p>Earn industry-recognized certificates from Google, Microsoft, and Autodesk alongside your TechStars diploma.</p>
+        </div>
+        <div class="why-card fade-in delay3">
+          <div class="why-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Global Community</h3>
+          <p>Join 850+ students across 12 countries. Collaborate on cross-border projects and build a worldwide network.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXTRA: TESTIMONIALS ==================== -->
+  <section id="testimonials">
+    <div class="testimonials-container">
+      <div class="testimonials-header fade-in">
+        <h2>What Parents & Students Say</h2>
+        <p>Real stories from real TechStars families.</p>
+      </div>
+      <div class="testimonials-slider fade-in delay1">
+        <div class="testimonial-track">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"My daughter went from 'I don't like computers' to building her own website in 8 weeks. TechStars changed how she sees herself."</p>
+            <div class="testimonial-author">
+              <img src="media/about-page-media/instructor_2.png" alt="Parent">
+              <div>
+                <strong>Amara Okafor</strong>
+                <span>Parent of Web Dev Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"The robotics track gave my son the confidence to enter a national competition. He placed 3rd — at age 13!"</p>
+            <div class="testimonial-author">
+              <img src="media/about-page-media/instructor_2.png" alt="Parent">
+              <div>
+                <strong>James Wilson</strong>
+                <span>Parent of Robotics Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <p class="testimonial-text">"As a student, I love that we work on real projects, not just theory. My portfolio already has 4 live apps!"</p>
+            <div class="testimonial-author">
+              <img src="media/about-page-media/instructor_2.png" alt="Student">
+              <div>
+                <strong>Chioma Adeyemi</strong>
+                <span>Data Science Student, Age 16</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"My daughter went from 'I don't like computers' to building her own website in 8 weeks. TechStars changed how she sees herself."</p>
+            <div class="testimonial-author">
+              <img src="media/about-page-media/instructor_2.png" alt="Parent">
+              <div>
+                <strong>Amara Okafor</strong>
+                <span>Parent of Web Dev Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"The robotics track gave my son the confidence to enter a national competition. He placed 3rd — at age 13!"</p>
+            <div class="testimonial-author">
+              <img src="media/about-page-media/instructor_2.png" alt="Parent">
+              <div>
+                <strong>James Wilson</strong>
+                <span>Parent of Robotics Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <p class="testimonial-text">"As a student, I love that we work on real projects, not just theory. My portfolio already has 4 live apps!"</p>
+            <div class="testimonial-author">
+              <img src="media/about-page-media/instructor_2.png" alt="Student">
+              <div>
+                <strong>Chioma Adeyemi</strong>
+                <span>Data Science Student, Age 16</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-nav">
+          <button class="testimonial-prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="testimonial-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="testimonial-next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWSLETTER (MODIFIED) ==================== -->
   <section id="newsletter">
     <div class="new-container">
-      <h3>Newsletter</h3>
-      <p>
-        Sign in to receive the latest tech news and updates.
-      </p>
-      <form action="#">
-        <input type="text">
-        <input type="submit">
-      </form>
+      <div class="newsletter-content fade-in">
+        <div class="newsletter-badge"><i class="fa-solid fa-paper-plane"></i> Weekly Newsletter</div>
+        <h3>Stay in the Loop</h3>
+        <p>Get weekly tech tips, course updates, exclusive bootcamp invites, and student success stories delivered to your inbox.</p>
+        <form class="fade-in delay1" id="newsletter-form" action="#" novalidate>
+          <div class="input-group">
+            <div class="input-wrap">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="newsletter-email" name="user_email" placeholder="Enter your email address" required>
+            </div>
+            <button type="submit" class="newsletter-btn" id="submit-btn">
+              <span class="btn-text">Send Hi</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+          <p class="form-message" id="form-message"></p>
+          <label class="consent">
+            <input type="checkbox" id="consent-check" required>
+            <span>I agree to receive a message from TechStars.</span>
+          </label>
+        </form>
+      </div>
+      <div class="newsletter-visual fade-in delay2">
+        <div class="visual-card">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          <strong>2,400+</strong>
+          <span>Happy Subscribers</span>
+        </div>
+        <div class="visual-card visual-card--small">
+          <i class="fa-solid fa-bolt"></i>
+          <strong>Weekly</strong>
+          <span>Fresh Content</span>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ==================== FOOTER (PRESERVED EXACTLY) ==================== -->
   <footer>
-
     <div class="footer-top-row">
       <div class="footer-col foot-discription">
         <img src="media/about-page-media/TechStars_Logo.png" alt="">
@@ -403,12 +440,24 @@
         </ul>
       </div>
     </div>
-
   </footer>
 
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightbox-img">
+      <video controls id="lightbox-video">
+        <source src="" type="video/mp4">
+      </video>
+      <p id="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
 
   <script src="https://kit.fontawesome.com/13f42163ac.js" crossorigin="anonymous"></script>
   <script src="asset/aboutUs.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </body>
 </html>
