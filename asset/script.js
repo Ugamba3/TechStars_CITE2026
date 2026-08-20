@@ -1,3 +1,24 @@
+// fading start
+const observerOptions = {
+  threshold: 0.1, // 10% of the element must be visible before it fades in
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      // Optional: observer.unobserve(entry.target); // Check this if you only want it to fade in ONCE
+    } else {
+      entry.target.classList.remove("active"); // Remove this if you don't want it to fade back out
+    }
+  });
+}, observerOptions);
+
+// Target all elements with the .reveal class
+document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+// fading end
+
 
 function initPageNavigation() {
   const navItems = document.querySelectorAll('.nav-item[data-page]');
@@ -398,3 +419,196 @@ document.addEventListener('DOMContentLoaded', () => {
   initTermSwitcher();
   initAnnouncements();
 });
+
+
+/* STUDENT LIST EXPORT */
+const exportBtn = document.querySelector("#page-students .btn-outline");
+
+if (exportBtn) {
+  exportBtn.addEventListener("click", () => {
+    // 1. Collect all student cards
+    const studentCards = document.querySelectorAll(".student-profile-card");
+    const students = [];
+
+    studentCards.forEach(card => {
+      // Extract data safely
+      const nameEl = card.querySelector(".student-meta h2");
+      const idEl = card.querySelector(".student-id");
+      const courseEl = card.querySelector(".student-course");
+      const descEl = card.querySelector(".student-desc");
+      const imgEl = card.querySelector(".student-visual img");
+
+      // Extract stats
+      const statDivs = card.querySelectorAll(".student-stats > div");
+      const stats = [];
+      statDivs.forEach(stat => {
+        const value = stat.querySelector("strong")?.textContent.trim() || "";
+        const label = stat.querySelector("span")?.textContent.trim() || "";
+        if (value && label) stats.push({ value, label });
+      });
+
+      students.push({
+        name: nameEl?.textContent.trim() || "Unknown",
+        id: idEl?.textContent.replace("ID:", "").trim() || "N/A",
+        course: courseEl?.textContent.trim() || "",
+        description: descEl?.textContent.trim() || "",
+        image: imgEl?.getAttribute("src") || "",
+        imageAlt: imgEl?.getAttribute("alt") || "",
+        stats: stats
+      });
+    });
+
+    // 2. Build printable HTML document
+    const printDate = new Date().toLocaleDateString("en-US", {
+      year: "numeric", month: "long", day: "numeric"
+    });
+
+    let statsRows = "";
+    students.forEach((s, index) => {
+      const statsHtml = s.stats.map(st => 
+        `<span class="stat-box"><strong>${st.value}</strong> ${st.label}</span>`
+      ).join("");
+
+      statsRows += `
+        <tr>
+          <td class="num">${index + 1}</td>
+          <td class="name">${s.name}</td>
+          <td class="id">${s.id}</td>
+          <td class="course">${s.course}</td>
+          <td class="stats">${statsHtml}</td>
+        </tr>
+      `;
+    });
+
+    const printableHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Report - ${printDate}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.5;
+      padding: 40px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #2c3e50;
+    }
+    .header h1 { font-size: 28px; color: #2c3e50; margin-bottom: 6px; }
+    .header p { color: #666; font-size: 14px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead th {
+      background: #2c3e50;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+    tbody tr:nth-child(even) { background: #f8f9fa; }
+    .num { width: 40px; text-align: center; font-weight: bold; color: #666; }
+    .name { font-weight: 600; color: #2c3e50; min-width: 160px; }
+    .id { font-family: monospace; color: #555; min-width: 110px; }
+    .course { min-width: 180px; color: #444; }
+    .stats { min-width: 140px; }
+    .stat-box {
+      display: inline-block;
+      background: #e8f4f8;
+      border: 1px solid #b8dcee;
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin: 2px 4px 2px 0;
+      font-size: 13px;
+    }
+    .stat-box strong { color: #1a5276; margin-right: 4px; }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+    }
+    @media print {
+      body { padding: 20px; }
+      .no-print { display: none; }
+    }
+    .download-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 24px;
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .download-btn:hover { background: #1a252f; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Student Directory Report</h1>
+    <p>Generated on ${printDate} &bull; ${students.length} student(s)</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Student ID</th>
+        <th>Course</th>
+        <th>Statistics</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${statsRows}
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <p>Confidential &bull; Academic Records</p>
+    <button class="download-btn no-print" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <script>
+    // Auto-focus print dialog if opened from file
+    window.onload = () => {
+      if (window.opener) setTimeout(() => window.print(), 300);
+    };
+  </script>
+</body>
+</html>`;
+
+    // 3. Create downloadable file
+    const blob = new Blob([printableHtml], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const filename = `Student_Report_${new Date().toISOString().split("T")[0]}.html`;
+
+    // 4. Trigger download
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    // Optional: open in new tab for immediate preview
+    // window.open(url, "_blank");
+  });
+}

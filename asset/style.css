@@ -27,6 +27,20 @@
   --font-body: 'Inter', sans-serif;
 }
 
+/* Ensure fade-in elements are visible once active */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 body {
   font-family: var(--font-body);
   background: var(--background);
@@ -945,3 +959,142 @@ body.dark-mode .badge-danger  { background: rgba(239, 68, 68, 0.18); color: #f87
 body.dark-mode .badge-neutral { background: rgba(148, 163, 184, 0.18); color: var(--text-secondary); }
 body.dark-mode .icon-btn .dot { border-color: var(--surface); }
 body.dark-mode .popover-backdrop { background: rgba(0, 0, 0, 0.15); }
+
+/* ========================================
+   CARDS
+   ======================================== */
+
+.student-profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+/* ========================================
+   STUDENT PROFILES — ALTERNATING LAYOUT
+   ======================================== */
+
+.students-list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-top: 50px;
+}
+
+.student-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 5px 20px;
+}
+
+.student-visual {
+  flex: 0 0 270px;
+  height: 240px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transform: translateY(-40px);
+}
+
+.student-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.student-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.student-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-id {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.student-info h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.student-course {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+.student-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 4px 0 8px;
+  max-width: 90%;
+}
+
+.student-stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 4px;
+}
+
+.student-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.student-stats strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.student-stats span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ========================================
+   ALTERNATING DIRECTIONS
+   ======================================== */
+
+.student-card--left {
+  flex-direction: row;
+}
+
+.student-card--right {
+  flex-direction: row-reverse;
+}
+
+.student-card--right .student-info {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.student-card--right .student-desc {
+  max-width: 90%;
+  margin-left: auto;
+}
+
+.student-card--right .student-stats {
+  justify-content: flex-end;
+}

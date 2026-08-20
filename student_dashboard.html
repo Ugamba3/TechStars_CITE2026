@@ -30,6 +30,11 @@
       <button class="nav-item" data-page="profile">
         <i class="fa-solid fa-user"></i><span>Student Profile</span>
       </button>
+      
+      <button class="nav-item" data-page="students">
+        <i class="fa-solid fa-users"></i><span>Student Profiles</span>
+      </button>
+
       <button class="nav-item" data-page="courses">
         <i class="fa-solid fa-book-open"></i><span>Courses Offered</span>
       </button>
@@ -361,6 +366,90 @@
           <div><p class="ps-num">9</p><p class="ps-label">Courses</p></div>
           <div><p class="ps-num">2nd</p><p class="ps-label">Class Rank</p></div>
         </div>
+      </div>
+    </section>
+
+    <!-- STUDENT PROFILES -->
+    <section class="page" id="page-students">
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">Class of 2025/2026</p>
+          <h1>Student Profiles</h1>
+        </div>
+        <button class="btn-outline"><i class="fa-solid fa-download"></i> Export list</button>
+      </div>
+
+      <div class="students-list">
+
+        <!-- Student 1: Image LEFT | Text RIGHT -->
+        <div class="student-profile-card student-card fade-in student-card--left">
+          <div class="student-visual">
+            <img src="media/profile-images/student1.png" alt="Amara Nwosu">
+          </div>
+          <div class="student-info">
+            <div class="student-meta">
+              <h2>Amara Nwosu</h2>
+              <span class="student-id">ID: STU-20481</span>
+            </div>
+            <p class="student-course">Computer Science</p>
+            <p class="student-desc">
+              A dedicated full-stack developer in training with a passion for artificial intelligence 
+              and human-computer interaction. Amara leads the university coding club and has 
+              contributed to three open-source projects this semester.
+            </p>
+            <div class="student-stats">
+              <div><strong>3.8</strong><span>GPA</span></div>
+              <div><strong>94%</strong><span>Attendance</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 2: Text LEFT | Image RIGHT -->
+        <div class="student-profile-card student-card fade-in student-card--right">
+          <div class="student-visual">
+            <img src="media/profile-images/student2.jpeg" alt="David Okafor">
+          </div>
+          <div class="student-info">
+            <div class="student-meta">
+                <span class="student-id">ID: STU-20492</span>
+                <h2>David Okafor</h2>
+            </div>
+            <p class="student-course">Communication Engineering</p>
+            <p class="student-desc">
+              Specializing in wireless networks and signal processing. David has a keen interest 
+              in 5G infrastructure and IoT systems. He recently presented a paper on low-latency 
+              communication protocols at the regional engineering symposium.
+            </p>
+            <div class="student-stats">
+              <div><strong>3.6</strong><span>GPA</span></div>
+              <div><strong>91%</strong><span>Attendance</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 3: Image LEFT | Text RIGHT -->
+        <div class="student-profile-card student-card fade-in student-card--left">
+          <div class="student-visual">
+            <img src="media/profile-images/student3.jpeg" alt="Chioma Adeyemi">
+          </div>
+          <div class="student-info">
+            <div class="student-meta">
+              <h2>Chioma Adeyemi</h2>
+              <span class="student-id">ID: STU-20503</span>
+            </div>
+            <p class="student-course">Data Science & Analytics</p>
+            <p class="student-desc">
+              Chioma combines statistical rigor with creative problem-solving. Her recent capstone 
+              project on predictive healthcare analytics won the faculty innovation award. She 
+              mentors first-year students in Python and data visualization techniques.
+            </p>
+            <div class="student-stats">
+              <div><strong>3.9</strong><span>GPA</span></div>
+              <div><strong>96%</strong><span>Attendance</span></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
