@@ -672,6 +672,10 @@ footer p{
   transform: scale(1.08);
 }
 
+.videos .gallery-overlay {
+  display: none;
+}
+
 .gallery-overlay {
   position: absolute;
   inset: 0;
