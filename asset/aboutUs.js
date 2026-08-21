@@ -426,3 +426,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
+
+const hi = [1, 2, 4];
+
+for (let i = hi.length; i < hi.length; i++) {
+  const element = hi[i];
+  console.log(element)
+}
+
+for (let index = 0; index < array.length; index++) {
+  const element = array[index];
+  
+}

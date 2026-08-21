@@ -415,6 +415,29 @@ footer p{
   transform: translateX(7px);
 }
 
+.footer-bottom{
+    margin-top:60px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.15);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-bottom p{
+    width: fit-content;
+    color:#c8d2e3;
+    font-size:16px;
+    margin: 0;
+}
+
+.footer-bottom span{
+    color:#2563ff;
+    font-weight:700;
+}
+
 /* ============================================================
    MODIFIED / NEW SECTIONS
    ============================================================ */
@@ -559,7 +582,7 @@ footer p{
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-25px); }
 }
 
 @media (max-width: 992px) {
@@ -672,8 +695,8 @@ footer p{
   transform: scale(1.08);
 }
 
-.videos .gallery-overlay {
-  display: none;
+.videos .gallery-overlay i {
+  visibility: hidden;
 }
 
 .gallery-overlay {
